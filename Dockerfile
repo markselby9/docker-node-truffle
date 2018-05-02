@@ -4,7 +4,6 @@ MAINTAINER Mark Feng <markselbyfcy@gmail.com>
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-RUN apk add -t .gyp
-	&& apk add --no-cache git python g++ make \
-    && npm install -g truffle \
-    && apk del .gyp
+RUN apk update && apk upgrade && \
+    apk add --no-cache bash git openssh python g++ make \
+    && npm install -g truffle
